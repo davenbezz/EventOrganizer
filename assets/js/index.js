@@ -27,12 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!('indexedDB' in window)) {
         console.log('This browser doesn\'t support IndexedDB');
     }
-
     function displayEvents() {
 
         // eventList.innerHTML = "";
         // console.log(eventTitle.value, eventDescription.value);
-        while (eventList.firstChild) {
+        while(eventList.firstChild){
             eventList.removeChild(eventList.firstChild);
         }
         let objectStore = DB.transaction('events').objectStore('events');
@@ -53,15 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 b.textContent = (eventTitle.value);
                 b.style.padding = '0.3rem';
                 li.className = 'card';
-                li.setAttribute('event-id', cursor.value.id);
+                li.setAttribute('event-task-id', cursor.value.id);
                 date.appendChild(document.createTextNode(cursor.value.date));
                 date.style.color = "#f00";
                 date.style.fontSize = "0.9rem";
                 date.style.fontWeight = 'bolder';
-                date.style.paddingTop = '0.4rem';
                 change.className = 'changeEvent';
-                change.innerHTML = `<i class="fa fa-remove btn deleteEvent" id="deleteEvent"></i> <a href="edit.html?id=${cursor.value.id}"><i class="fa fa-edit btn"></i> </a>`;
-
+                change.innerHTML = `<i class="fa fa-remove"></i> <a href="edit.html?id=${cursor.value.id}"><i class="fa fa-edit"></i> </a>`;
+                
                 link.href = `event.html?id=${cursor.value.id}`;
                 link.innerHTML = `<img src=${cursor.value.imageSource} class='img-fluid event-image'></img>`;
                 li.appendChild(link);
@@ -73,14 +71,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 li.appendChild(change);
                 li.style.padding = '0.2rem';
                 eventList.appendChild(li);
-
-
+                
+                eventTitle.value = "";
+                eventDescription.value = "";
+                eventImage.value = "";
+                eventDetail.value = "";
+                eventLocation.value = "";
+                
                 cursor.continue();
-                // createDelete();
             }
         }
     }
-    //Creating the Database
     let eventDB = window.indexedDB.open("eventOrganizer", 1);
     eventDB.onerror = function (event) {
         console.log("Error Opening Database.");
@@ -96,49 +97,19 @@ document.addEventListener('DOMContentLoaded', () => {
         DB.onerror = function (event) {
             console.log("Error Loading Database.");
         }
-        //Creating the objectStore as events (The whole data will be there)
         let store = DB.createObjectStore("events", {
             keyPath: 'id',
             autoIncrement: true
         });
-        //Creating Index and allow duplicating Title and Image Source
-        store.createIndex('eventTitle', 'imageSource', {
-            unique: false
-        });
+    
+        store.createIndex('eventTitle', 'imageSource', {unique: false});
         store.transaction.oncomplete = function (event) {
             console.log('Database is ready and fields are created.');
         }
     }
     form.addEventListener('submit', addNewEvent);
-
-
-    //Deleting a single entry
-
-    eventList.addEventListener('click', removeEvent);
-
-    function removeEvent(e) {
-        Number(e.target.parentElement.parentElement.getAttribute('event-id'));
-
-        if (e.target.parentElement.classList.contains('changeEvent')) {
-            if (confirm(`Are you sure you want to delete this event?`)) {
-                // get the task id
-
-
-                let taskID = Number(e.target.parentElement.parentElement.getAttribute('event-id'));
-                let transaction = DB.transaction(['events'], 'readwrite');
-                // use a transaction
-                let objectStore = DB.transaction('events', 'readwrite').objectStore('events');
-                objectStore.delete(taskID);
-
-                transaction.oncomplete = () => {
-                    e.target.parentElement.parentElement.remove();
-                }
-
-            }
-        }
-    }
-
-    //A function to add new event
+    
+    
     function addNewEvent() {
         let newEvent = {
             eventTitle: eventTitle.value,
@@ -148,13 +119,13 @@ document.addEventListener('DOMContentLoaded', () => {
             eventDetail: eventDetail.value,
             eventLocation: eventLocation.value
         }
-
+    
         let transaction = DB.transaction(['events'], 'readwrite');
         let store = transaction.objectStore('events');
         let request = store.add(newEvent);
-
+    
         request.onsuccess = () => {
-            form.reset();
+            // form.reset();
         }
         transaction.oncomplete = () => {
             console.log("New Event Added.");
@@ -165,3 +136,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
