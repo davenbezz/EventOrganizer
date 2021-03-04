@@ -90,7 +90,7 @@ class EventCard extends HTMLElement {
             if (!likeBtn.contains(e.target)) {
                 const id = card.getAttribute('data-id');
                 console.log(id);
-                location.href = `/eventDetail.html?id=${id}`
+                location.href = `/eventdetail.html?id=${id}`
             }
         });
 
