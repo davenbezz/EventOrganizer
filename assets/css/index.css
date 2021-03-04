@@ -1,225 +1,287 @@
 /* #f05537 */
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-
-.navbar {
-    color: #fff;
-    background: #fff !important;
-    border-bottom: 4px solid #ff4d28;
-    padding: 5px 16px;
-    border-radius: 0;
-    box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+.topnav {
+  overflow: hidden;
+  background-color: #fff;
+  border-bottom: 2.4px solid #ff4d28;
 }
 
-.navbar img {
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    margin-right: 10px;
+.topnav a {
+  float: left;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.navbar .navbar-brand {
-    color: #f05537;
-    padding-left: 0;
-    padding-right: 50px;
-    font-size: 24px;
+.topnav div {
+  float: right;
 }
 
-.navbar .navbar-brand:hover,
-.navbar .navbar-brand:focus {
-    color: #f05637c9;
+.navitem:hover {
+  background-color: #f0f0f0;
+  color: black;
 }
 
-.navbar .navbar-brand i {
-    font-size: 25px;
-    margin-right: 5px;
+.topnav a.active {
+  color: blue;
 }
 
-.search-box {
-    position: relative;
+.card {
+  margin: auto;
+  flex: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 40%;
+  max-width: 20rem;
 }
 
-.search-box input {
-    padding-right: 35px;
-    min-height: 38px;
-    border: none;
-    background: #faf7fd;
-    border-radius: 3px !important;
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.search-box input:focus {
-    background: #fff;
-    box-shadow: none;
+.container {
+  padding: 2px 16px;
 }
 
-.search-box .input-group-addon {
-    min-width: 35px;
-    border: none;
-    background: transparent;
-    position: absolute;
-    right: 0;
-    z-index: 9;
-    padding: 10px 7px;
-    height: 100%;
+#logo-font {
+  font-family: 'Kaushan Script', cursive;
+  color: #f05537;
+  font-size: 1.5rem;
 }
 
-.search-box i {
-    color: #a0a5b1;
-    font-size: 19px;
+#logo {
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: middle;
 }
 
-.navbar .nav-item i {
-    font-size: 18px;
+#searchBar {
+  padding: 0.5rem;
+  margin-top: 0.9rem;
+  margin-left: 3rem;
+  width: 20rem;
+  font-Size: 0.8rem;
+  font-weight: bolder;
+  border: 0px;
+  background-color: #f0f0f0;
+}
+#searchBar:focus {
+  outline: none !important;
+  border: 2px solid red;
+  border-color: #00f;
 }
 
-.navbar .nav-item span {
-    position: relative;
-    top: 3px;
+.right {
+  display: flex;
+  flex-direction: column;
 }
 
-.navbar .navbar-nav>a {
-    color: #efe5ff;
-    padding: 8px 15px;
-    font-size: 14px;
+.hide {
+  display: none;
 }
 
-.navbar .navbar-nav>a:hover,
-.navbar .navbar-nav>a:focus {
-    color: #fff;
-    text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+.hovered {
+  background-color: #fff;
+  width: 15rem;
+  border-bottom: 1px solid #ff4d28;
+  transition: visibility 1s, opacity 1s linear;
+}
+.hovered:hover{
+  background-color: #f0f0f0;
+}
+#event {
+
+  /* background-image: url(http://www.influenceim.com/wp-content/uploads/2017/07/event-planningand-management-1024x683-750x350.jpg); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(50px);
+  position: absolute;
+  left: 0;
+  top: 10rem;
+  height: 270px;
+  width: 100%
 }
 
-.navbar .navbar-nav>a>i {
-    display: block;
-    text-align: center;
+.emailtop {
+  vertical-align: bottom;
+  margin-top: 0.4rem;
+}
+.emailtop:hover{
+  background-color: #f0f0f0;
+}
+.show-hidden:hover .hide {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  text-align: left;
+  flex-direction: column;
+  top: 3.4rem;
+  right: 0rem;
+  z-index: 2;
 }
 
-.navbar .dropdown-item i {
-    font-size: 16px;
-    min-width: 22px;
+.price-bottom {
+  vertical-align: bottom;
 }
 
-.navbar .dropdown-item .material-icons {
-    font-size: 21px;
-    line-height: 16px;
-    vertical-align: middle;
-    margin-top: -2px;
+.card {
+  max-width: 100%;
 }
 
-.navbar .nav-item.open>a,
-.navbar .nav-item.open>a:hover,
-.navbar .nav-item.open>a:focus {
-    color: #fff;
-    background: none !important;
+.eventImage {
+  width: 67%;
 }
 
-.navbar .dropdown-menu {
-    border-radius: 1px;
-    border-color: #e5e5e5;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+.image-holder {
+  display: flex;
 }
 
-.navbar .dropdown-menu a {
-    color: #777 !important;
-    padding: 8px 20px;
-    line-height: normal;
-    font-size: 15px;
+.tags {
+  border-style: solid;
+  border-radius: 5rem;
+  text-decoration: none !important;
+  color: #000;
+  padding: 0.2rem;
 }
 
-.navbar .dropdown-menu a:hover,
-.navbar .dropdown-menu a:focus {
-    color: #333 !important;
-    background: transparent !important;
+.tags:hover {
+  color: #ff4d28;
 }
 
-.navbar .navbar-nav .active a,
-.navbar .navbar-nav .active a:hover,
-.navbar .navbar-nav .active a:focus {
-    color: #fff;
-    text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
-    background: transparent !important;
+.share-icons-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.navbar .navbar-nav .user-action {
-    padding: 9px 15px;
-    font-size: 15px;
+.share-icons {
+  flex: none;
+  margin: 0.2rem;
+  background-color: #a9a9a9;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 5rem;
+  text-align: center;
+  color: #fff;
+  vertical-align: middle;
+}
+.share-icons:hover{
+  color: #ff4d28;
+}
+.share-icons i {
+  vertical-align: bottom;
 }
 
-.navbar .navbar-toggle {
-    border-color: #fff;
+.line-event {
+  border-bottom: 1px solid #000;
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.navbar .navbar-toggle .icon-bar {
-    background: #fff;
+.hide-name {
+  display: none;
 }
 
-.navbar .navbar-toggle:focus,
-.navbar .navbar-toggle:hover {
-    background: transparent;
+.show-name: {
+  padding: 2rem;
 }
 
-.navbar .navbar-nav .open .dropdown-menu {
-    background: #faf7fd;
-    border-radius: 1px;
-    border-color: #faf7fd;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+.show-name a {
+  color: #aaa;
 }
 
-.navbar .divider {
-    background-color: #e9ecef !important;
+.show-name:hover .hide-name {
+  display: block;
+  position: absolute;
+  background-color: #000;
+  padding: 0.5rem;
+  color: #fff;
+  border-radius: 1rem;
 }
 
-@media (min-width: 700px) {
-    .form-inline .input-group {
-        width: 350px;
-        margin-left: 30px;
-    }
+.cards-home {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 700px) {
-    .navbar .navbar-nav>a>i {
-        display: inline-block;
-        text-align: left;
-        min-width: 30px;
-        position: relative;
-        top: 4px;
-    }
-    .navbar .navbar-collapse {
-        border: none;
-        box-shadow: none;
-        padding: 0;
-    }
-    .navbar .navbar-form {
-        border: none;
-        display: block;
-        margin: 10px 0;
-        padding: 0;
-    }
-    .navbar .navbar-nav {
-        margin: 8px 0;
-    }
-    .navbar .navbar-toggle {
-        margin-right: 0;
-    }
-    .input-group {
-        width: 100%;
-    }
+.cards-home li {
+  max-width: 27%;
+  flex: auto;
+  list-style-type: none;
+  margin: 2rem;
 }
 
-.events_container {
-    padding: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
+.add-event>textarea {
+  margin: 0.3rem;
 }
 
-event-card {
-    margin: 10px;
-    width: 270px;
+.event-image {
+  width: 100%;
 }
 
+.modal {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.modal-dialog {
+  width: 50rem;
+}
+
+.event-description {
+  width: 100%;
+}
+
+.event-detail {
+  width: 100%;
+}
+
+#line {
+  width: 100%;
+  border-bottom: 1px solid #ff4d28;
+}
+
+#cardEvent {
+  height: 26rem;
+}
+
+.bottomButton {
+  text-align: right;
+  float: right;
+  margin-right: 1rem;
+}
+
+.changeEvent {
+  width: 100%;
+  padding: 1rem;
+  text-align: end;
+}
+
+/* .changeEvent > i{
+  float: right;
+  padding: 1rem;
+}
+.changeEvent > a{
+  float: right;
+  padding: 1rem;
+} */
+#firstNavBar {
+  float: left;
+}
+
+#searchBarNavBar {
+  float: left;
+}
+#uniqueP{
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
